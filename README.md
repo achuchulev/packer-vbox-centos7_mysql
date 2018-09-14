@@ -29,13 +29,13 @@ After a few minutes, Packer should tell you the box was generated successfully a
 > Example:
 
 > ==> Builds finished. The artifacts of successful builds are:
-> --> centos7-x86_64-vbox: 'virtualbox' provider box: builds/virtualbox-centos7-minimal.box
+> --> centos7-x86_64-vbox: 'virtualbox' provider box: builds/virtualbox-centos7-mysql.box
 
 ### Run box
 
-* Add vagrant box: `vagrant box add --name redis-box builds/virtualbox-centos7-minimal.box`
+* Add vagrant box: `vagrant box add --name mysql-box builds/virtualbox-centos7-minimal.box`
 
-* Initialize Vagrant: `vagrant init -m redis-box`
+* Initialize Vagrant: `vagrant init -m mysql-box`
 
 * Start vagrant box: `vagrant up`
 
@@ -45,13 +45,13 @@ After a few minutes, Packer should tell you the box was generated successfully a
 
 * A temporary password is generated for the MySQL root user. Locate it in the mysqld.log with command:
 
- `sudo grep 'temporary password' /var/log/mysqld.log` 
+ * `sudo grep 'temporary password' /var/log/mysqld.log` 
 
 * Change MySQL root password with command:
 
- `sudo mysql_secure_installation`
+ * `sudo mysql_secure_installation`
 
 * Test that the new password works:
 
- `mysqladmin -u root -p version`
+ * `mysqladmin -u root -p version`
 
