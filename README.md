@@ -41,7 +41,7 @@ After a few minutes, Packer should tell you the box was generated successfully a
 
 * connect to redis-box: `vagrant ssh`
 
-### Change MySQL server root account
+### Change MySQL server root password
 
 * A temporary password is generated for the MySQL root user. Locate it in the mysqld.log with command:
 
