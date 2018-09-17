@@ -2,3 +2,4 @@ packer_*
 builds
 *.vbox
 .vagrant
+.kitchen
