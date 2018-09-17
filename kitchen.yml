@@ -1,0 +1,15 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: shell
+
+platforms:
+  - name: mysql-box
+
+verifier:
+  name: inspec
+
+suites:
+  - name: default
