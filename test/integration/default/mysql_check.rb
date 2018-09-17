@@ -1,3 +1,3 @@
-describe package('mysql) do
+describe package('mysql') do
   it { should be_installed }
 end
