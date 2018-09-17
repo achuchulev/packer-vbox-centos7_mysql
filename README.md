@@ -1,4 +1,4 @@
-# Packer template to bake VirtualBox (vagrant) CentOS7-x86_64 box with MySQL server. Use kitchen-vagrant to test that mysql service is enabled, running and listen on default port
+# Packer template to bake VirtualBox (vagrant) CentOS7-x86_64 box with MySQL server. Use kitchen-vagrant to test that mysql service is installed, enabled and running
 
 ### Purpose
 This repository stores a Packer template to build a Vagrant VirtualBox CentOS7-x86_64 box with MySQL server
@@ -55,7 +55,7 @@ After a few minutes, Packer should tell you the box was generated successfully a
 
  * `mysqladmin -u root -p version`
 
-## Test box for that mysql service is enabled, running and listen on default port
+## Test box for that mysql service is installed, enabled and running
 
 ### Run test
 
