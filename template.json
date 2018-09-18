@@ -82,7 +82,7 @@
           },
           {
             "type": "vagrant-cloud",
-            "box_tag": "achuchulev/centos7",
+            "box_tag": "achuchulev/centos7_mysql",
             "access_token": "{{user `cloud_token`}}",
             "version": "{{user `version`}}"
           }
