@@ -1,5 +1,6 @@
 packer_*
 builds
+output-centos7-mysql-vbox
 *.vbox
 .vagrant
 .kitchen
