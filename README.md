@@ -24,6 +24,7 @@ Go to the directory containing template.json file, and run:
 
 ```
 cd packer-vbox-centos7_mysql
+packer validate template.json
 packer build template.json
 ```
 
