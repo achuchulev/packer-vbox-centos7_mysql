@@ -23,8 +23,10 @@ Clone to repository locally: `git clone git@github.com:achuchulev/packer-vbox-ce
 Go to the directory containing template.json file, and run:
 
 ```
+
 cd packer-vbox-centos7_mysql
-$ packer build template.json
+packer build template.json
+
 ```
 
 ### Run box
