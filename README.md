@@ -10,7 +10,7 @@ The following software must be installed/present on your local machine before yo
 * VirtualBox (needed to build the VirtualBox box)
 * Vagrant
 
-### CentOS Packer Template:
+### Packer Template:
 
 * [template.json](https://github.com/achuchulev/packer-vbox-centos7_mysql/blob/master/template.json)
 
