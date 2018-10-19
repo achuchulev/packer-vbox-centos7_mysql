@@ -23,7 +23,6 @@ Clone to repository locally: `git clone git@github.com:achuchulev/packer-vbox-ce
 Go to the directory containing template.json file, and run:
 
 ```
-
 cd packer-vbox-centos7_mysql
 packer build template.json
 
@@ -41,15 +40,15 @@ packer build template.json
 
 * A temporary password is generated for the MySQL root user. Locate it in the mysqld.log with command:
 
- * `sudo grep 'temporary password' /var/log/mysqld.log` 
+`sudo grep 'temporary password' /var/log/mysqld.log` 
 
 * Change MySQL root password with command:
 
- * `sudo mysql_secure_installation`
+`sudo mysql_secure_installation`
 
 * Test that the new password works:
 
- * `mysqladmin -u root -p version`
+`mysqladmin -u root -p version`
 
 ## Test the box 
 
