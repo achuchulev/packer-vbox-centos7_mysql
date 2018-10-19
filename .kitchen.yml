@@ -6,10 +6,15 @@ provisioner:
   name: shell
 
 platforms:
-  - name: mysql-box
+  - name: centos7
+    driver:
+      box: centos7-mysql
 
 verifier:
   name: inspec
 
 suites:
   - name: default
+    verifier:
+      inspec_tests:
+        - test/integration/default

@@ -1,6 +1,6 @@
 {
     "variables": {
-        "build_name": "centos7-x86_64",
+        "build_name": "centos7",
         "build_cpu_cores": "2",
         "build_memory": "1024",
         "cpu_cores": "1",
@@ -10,7 +10,6 @@
         "iso_checksum": "714acc0aefb32b7d51b515e25546835e55a90da9fb00417fbee2d03a62801efd",
         "iso_checksum_type": "sha256",
         "iso_url": "http://mirrors.neterra.net/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1804.iso",
-        "cloud_token": "{{ env `MY_ATLAS_TOKEN` }}",
         "version": "0.0.1-{{timestamp}}",
         "ssh_username": "vagrant",
         "ssh_password": "vagrant"
@@ -18,8 +17,8 @@
     "builders": [
         {
         "type": "virtualbox-iso",
-        "name": "{{ user `build_name` }}-vbox",
-        "vm_name": "packer-centos-vm",
+        "name": "{{ user `build_name` }}-mysql-vbox",
+        "vm_name": "{{ user `build_name` }}-mysql-vbox",
         "boot_wait": "10s",
         "disk_size": "{{user `disk_size`}}",
         "headless": true,
@@ -29,7 +28,6 @@
         "iso_checksum": "{{user `iso_checksum`}}",
         "iso_checksum_type": "{{user `iso_checksum_type`}}",
         "guest_additions_path": "VBoxGuestAdditions.iso",
-  
         "boot_command": [
           "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/kickstart.cfg<enter><wait>"
         ],
@@ -75,17 +73,19 @@
         }
     ],
     "post-processors": [
-        [
-          {
-            "output": "builds/{{.Provider}}-centos7-mysql.box",
-            "type": "vagrant"
-          },
-          {
-            "type": "vagrant-cloud",
-            "box_tag": "achuchulev/centos7_mysql",
-            "access_token": "{{user `cloud_token`}}",
-            "version": "{{user `version`}}"
-          }
+     {
+        "type": "vagrant",
+        "keep_input_artifact": false,
+        "output": "builds/{{.BuildName}}.box"
+      },
+      {
+        "type": "shell-local",
+        "only": [
+          "{{ user `build_name` }}-mysql-vbox"
+        ],
+        "inline": [
+          "vagrant box add --name {{ user `build_name` }}-mysql --provider virtualbox builds/{{ user `build_name` }}-mysql-vbox.box -f"
         ]
+      }
     ]
 }
