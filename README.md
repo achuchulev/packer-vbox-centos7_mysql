@@ -14,11 +14,11 @@ The following software must be installed/present on your local machine before yo
 
 * [template.json](https://github.com/achuchulev/packer-vbox-centos7_mysql/blob/master/template.json)
 
-### Download repo from source locally
+### Clone repository locally:
 
-Clone to repository locally: `git clone git@github.com:achuchulev/packer-vbox-centos7_mysql.git`
+`git clone git@github.com:achuchulev/packer-vbox-centos7_mysql.git`
 
-### Build box
+## Build box
 
 Go to the directory containing template.json file, and run:
 
@@ -28,7 +28,7 @@ packer validate template.json
 packer build template.json
 ```
 
-### Run box
+## Run box
 
 * Initialize Vagrant: `vagrant init -m centos7-mysql`
 
@@ -36,7 +36,7 @@ packer build template.json
 
 * Connect to the box: `vagrant ssh`
 
-### Change MySQL server root password
+## Change MySQL server root password
 
 * A temporary password is generated for the MySQL root user. Locate it in the mysqld.log with command:
 
