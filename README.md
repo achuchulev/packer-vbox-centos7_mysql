@@ -1,4 +1,4 @@
-# Packer template to bake vagrant box with MySQL server. A kitchen-vagrant test is included to verify that mysql service is working properly
+# Packer template to bake vagrant box with MySQL. A kitchen-vagrant test is included
 
 ### Purpose
 This repository stores a Packer template to build a CentOS7-x86_64 Vagrant box for VirtualBox that have MySQL server istalled
