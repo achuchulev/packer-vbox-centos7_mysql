@@ -1,7 +1,7 @@
-# Packer template to bake VirtualBox (vagrant) CentOS7-x86_64 box with MySQL server. Use kitchen-vagrant to test that mysql service is installed, enabled and running
+# Packer template to bake vagrant box with MySQL server. A kitchen-vagrant test is included to verify that mysql service is working properly
 
 ### Purpose
-This repository stores a Packer template to build a Vagrant VirtualBox CentOS7-x86_64 box with MySQL server
+This repository stores a Packer template to build a CentOS7-x86_64 Vagrant box for VirtualBox that have MySQL server istalled
 
 ### Requirements
 The following software must be installed/present on your local machine before you can use Packer to build the Vagrant box file:
@@ -22,24 +22,18 @@ Clone to repository locally: `git clone git@github.com:achuchulev/packer-vbox-ce
 
 Go to the directory containing template.json file, and run:
 
-`$ packer build template.json`
-
-After a few minutes, Packer should tell you the box was generated successfully and print the name of the artifact.
-
-> Example:
-
-> ==> Builds finished. The artifacts of successful builds are:
-> --> centos7-x86_64-vbox: 'virtualbox' provider box: builds/virtualbox-centos7-mysql.box
+```
+cd packer-vbox-centos7_mysql
+$ packer build template.json
+```
 
 ### Run box
 
-* Add vagrant box: `vagrant box add --name mysql-box builds/virtualbox-centos7-minimal.box`
-
-* Initialize Vagrant: `vagrant init -m mysql-box`
+* Initialize Vagrant: `vagrant init -m centos7-mysql`
 
 * Start vagrant box: `vagrant up`
 
-* connect to redis-box: `vagrant ssh`
+* Connect to the box: `vagrant ssh`
 
 ### Change MySQL server root password
 
@@ -55,12 +49,16 @@ After a few minutes, Packer should tell you the box was generated successfully a
 
  * `mysqladmin -u root -p version`
 
-## Test box for that mysql service is installed, enabled and running
+## Test the box 
+
+### Prerequisite - A Test Kitchen Driver for Vagrant is installed
+
+* If using the ChefDK, kitchen-vagrant is already installed. If using an existing Ruby install:
+
+`gem install kitchen-vagrant`
 
 ### Run test
 
-Run command `kitchen list` to check that kitchen instance is detected from kitchen.yml
+Run command `kitchen list` to verify that vagrant box is ready to be tested
 
-Run command `kitchen test` to check the box
-
-
+Run command `kitchen test` to check that mysql-server is installed, mysql service is enabled and running, default mysql port is tcp 3306, mysql configuration file exists at the default location, has right permissions and is owned by root 
