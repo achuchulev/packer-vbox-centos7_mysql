@@ -51,7 +51,7 @@ $ packer build template.json
 
 ## Test the box 
 
-### Prerequisite - A Test Kitchen Driver for Vagrant is installed
+### Prerequisite - a Test Kitchen Driver for Vagrant is installed
 
 * If using the ChefDK, kitchen-vagrant is already installed. If using an existing Ruby install:
 
