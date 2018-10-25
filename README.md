@@ -52,14 +52,58 @@ packer build template.json
 
 ## Test the box 
 
+to check that mysql-server is installed, mysql service is enabled and running, default mysql port is tcp 3306, mysql configuration file exists at the default location, has right permissions and is owned by root
+
+### on Linux
+
 ### Prerequisite - a Test Kitchen Driver for Vagrant is installed
 
-* If using the ChefDK, kitchen-vagrant is already installed. If using an existing Ruby install:
+* If using the ChefDK, kitchen-vagrant is already installed. 
 
-`gem install kitchen-vagrant`
+* If using an existing Ruby install:
+
+```
+gem install test-kitchen
+gem install kitchen-vagrant
+gem install kitchen-inspec
+```
 
 ### Run test
 
-Run command `kitchen list` to verify that vagrant box is ready to be tested
+`kitchen test` 
 
-Run command `kitchen test` to check that mysql-server is installed, mysql service is enabled and running, default mysql port is tcp 3306, mysql configuration file exists at the default location, has right permissions and is owned by root 
+### on MAC
+
+#### Prerequisit
+
+##### Install rbenv to use ruby version 2.3.1
+
+```
+brew install rbenv
+rbenv install 2.3.1
+rbenv local 2.3.1
+rbenv versions
+```
+
+##### Add the following lines to your ~/.bash_profile:
+
+```
+eval "$(rbenv init -)"
+true
+export PATH="$HOME/.rbenv/bin:$PATH"
+```
+
+##### Reload profile: 
+
+`source ~/.bash_profile`
+
+##### Install bundler
+
+```
+gem install bundler
+bundle install
+```
+
+#### Run test 
+
+`bundle exec kitchen test`
