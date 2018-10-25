@@ -56,7 +56,7 @@ to check that mysql-server is installed, mysql service is enabled and running, d
 
 ### on Linux
 
-### Prerequisite - a Test Kitchen Driver for Vagrant is installed
+#### Prerequisite - a Test Kitchen Driver for Vagrant is installed
 
 * If using the ChefDK, kitchen-vagrant is already installed. 
 
@@ -68,7 +68,7 @@ gem install kitchen-vagrant
 gem install kitchen-inspec
 ```
 
-### Run test
+#### Run test
 
 `kitchen test` 
 
